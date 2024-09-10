@@ -24,8 +24,8 @@ int pre_stock = 0;
 #define in4 D6
 
 
-const char* ssid = "Virinchi College";
-const char* password = "virinchi@2024";
+const char* ssid = "**";
+const char* password = "*****";
 
 const int stepsPerRevolution = 300; 
 Stepper myStepperTwo(stepsPerRevolution, in1, in2, in3, in4);
@@ -49,13 +49,13 @@ void setup() {
   // Firebase 1 setup
 
   config1.host = "vending-machine-da946-default-rtdb.firebaseio.com";
-  config1.signer.tokens.legacy_token = "bi3gfaM4HODAfopo4mZakNPNwOjVVOVmDycwku5N";
+  config1.signer.tokens.legacy_token = "asdfghjkl;"; // secret key of database
   Firebase.begin(&config1, &auth1);
   Firebase.reconnectWiFi(true);
 
   // Firebase 2 setup
   config2.host = "pre-stock-f249d-default-rtdb.asia-southeast1.firebasedatabase.app";
-  config2.signer.tokens.legacy_token = "HZM5MF7g0Qf75fx0O9UuTV0UHWIe9PJ1pGQrAlVw";
+  config2.signer.tokens.legacy_token = "qwertyuiop"; // secret key of database
   
 }
 

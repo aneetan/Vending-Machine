@@ -12,8 +12,8 @@ FirebaseAuth auth;
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
 // WiFi credentials
-const char* ssid = "Virinchi College";
-const char* password = "virinchi@2024";
+const char* ssid = "*****";
+const char* password = "*****";
 
 #define in1 D3
 #define in2 D4
@@ -24,7 +24,6 @@ FirebaseData firebaseData;
 int stock = 0;
 
 // Replace with receiver's MAC Address
-// uint8_t receiverAddress[] = {0xBC, 0xDD, 0xC2, 0x7E, 0x83, 0x02};
 
 #define coinPin D7
 
@@ -32,10 +31,8 @@ int stock = 0;
 volatile int pulseCount = 0; // Count the number of pulses
 
 const int stepsPerRevolution = 300; 
-// const int stepsPerRevolution2 = 200; 
 
 Stepper myStepper(stepsPerRevolution, in1, in2, in3, in4);
-// Stepper myStepperTwo(stepsPerRevolution, in11, in22, in33, in44);
 
 // Timing definitions
 unsigned long lastPulseTime = 0;
@@ -88,25 +85,12 @@ void setup() {
 
   // Configure Firebase
   config.host = "vending-machine-da946-default-rtdb.firebaseio.com";
-  config.signer.tokens.legacy_token = "bi3gfaM4HODAfopo4mZakNPNwOjVVOVmDycwku5N";
+  config.signer.tokens.legacy_token = "asdfgjhkjlk;l';";
   Firebase.begin(&config, &auth);
   Firebase.reconnectWiFi(true);
 
 
   pinMode(coinPin, INPUT_PULLUP); // Set the coin pin as input with pull-up resistor
-
-  // Init ESP-NOW
-  // if (esp_now_init() != 0) {
-  //   Serial.println("Error initializing ESP-NOW");
-  //   return;
-  // }
-  
-  // // Register send callback
-  // esp_now_set_self_role(ESP_NOW_ROLE_CONTROLLER);
-  // esp_now_register_send_cb(onSent);
-
-  // // Add peer (receiver) address
-  // esp_now_add_peer(receiverAddress, ESP_NOW_ROLE_SLAVE, 1, NULL, 0);
 
   lcd.init();
   lcd.backlight();
